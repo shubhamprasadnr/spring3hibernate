@@ -167,7 +167,7 @@
                 </executions>
                 <configuration>
                     <!-- Location to save the reports -->
-                    <outputDirectory>${project.build.directory}/dependency-check-report</outputDirectory>
+                    <outputDirectory>target/dependency-check-report</outputDirectory>
                     
                     <!-- Format of the report -->
                     <formats>
