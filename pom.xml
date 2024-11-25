@@ -153,18 +153,33 @@
 					<port>11011</port>
 				</configuration>
 			</plugin>
-			<plugin>
-                                <groupId>org.owasp</groupId>
-            			<artifactId>dependency-check-maven</artifactId>
-            			<version>8.0.1</version>
-            		  <executions>
-                  <execution>
-                      <goals>
-                          <goal>check</goal>
-                       </goals>
-                      </execution>
-                     </executions>
-        	    </plugin>
+			 <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>${dependency-check.version}</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Location to save the reports -->
+                    <outputDirectory>${project.build.directory}/dependency-check-report</outputDirectory>
+                    
+                    <!-- Format of the report -->
+                    <formats>
+                        <format>HTML</format>
+                        <format>JSON</format>
+                        <format>XML</format>
+                    </formats>
+
+                    <!-- Suppress false positives -->
+                    <suppressionFile>${project.basedir}/suppressions.xml</suppressionFile>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 	<version>1.8-SNAPSHOT</version>
