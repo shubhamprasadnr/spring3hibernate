@@ -153,6 +153,19 @@
 					<port>11011</port>
 				</configuration>
 			</plugin>
+			<plugin>
+                                <groupId>org.owasp</groupId>
+            			<artifactId>dependency-check-maven</artifactId>
+            			<version>8.0.1</version>
+            		<executions>
+                		<execution>
+                    			<phase>verify</phase>
+                       	<goals>
+                        	<goal>check</goal>
+                      </goals>
+                     </execution>
+            	    </executions>
+        	    </plugin>
 		</plugins>
 	</build>
 	<version>1.8-SNAPSHOT</version>
